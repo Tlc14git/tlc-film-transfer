@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLC Film Transfer | Preserve Your Family Memories Before They Fade</title>
+    <meta name="description" content="Professional film transfer and photo scanning in Denver, Colorado. Convert 8mm, Super 8 film and printed photos to digital. Local, personal service.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1a365d;
+            --secondary: #c9a227;
+            --accent: #e2e8f0;
+            --text: #2d3748;
+            --light: #f7fafc;
+            --dark: #1a202c;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--light);
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.4rem; font-weight: bold; }
+        .logo span { color: var(--secondary); }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; }
+        .cta-button {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
+            color: white;
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero h1 span { color: var(--secondary); }
+        .hero-subtitle { font-size: 1.3rem; margin-bottom: 1.5rem; opacity: 0.95; }
+        .hero-description { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.9; }
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-block;
+        }
+        .section { padding: 70px 0; }
+        .section-white { background: white; }
+        .section-light { background: var(--light); }
+        .section-dark { background: var(--primary); color: white; }
+        .section-title { text-align: center; margin-bottom: 2.5rem; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 1rem; }
+        .section-dark .section-title h2 { color: white; }
+        .section-title p { font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        .problem-box {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .problem-box h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.4rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .service-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.4rem; }
+        .service-card ul { margin-left: 1.5rem; margin-top: 1rem; }
+        .service-card li { margin-bottom: 0.5rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .feature { text-align: center; padding: 1.5rem; }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .feature h3 { margin-bottom: 0.75rem; color: var(--secondary); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .pricing-card.featured { border: 3px solid var(--secondary); position: relative; }
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.4rem 1.2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .pricing-card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .price { font-size: 2.5rem; color: var(--primary); font-weight: bold; margin: 1rem 0; }
+        .price-note { color: var(--text); font-size: 0.9rem; }
+        .memories-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .memory-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .step { text-align: center; padding: 1.5rem; }
+        .step-number {
+            width: 50px; height: 50px;
+            background: var(--secondary);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        .contact-section { text-align: center; }
+        .contact-info { margin: 2rem 0; }
+        .contact-item { margin-bottom: 1rem; font-size: 1.1rem; }
+        footer { background: var(--dark); color: white; padding: 2rem 0; text-align: center; }
+        footer p { opacity: 0.8; }
+        .tagline { color: var(--secondary); font-weight: bold; margin-top: 0.5rem; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 120px 0 60px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">TLC <span>Film Transfer</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact" class="cta-button">Free Quote</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Preserve Your Family Memories <span>Before They Fade</span></h1>
+            <p class="hero-subtitle">Professional Film Transfer & Photo Scanning in Denver, Colorado</p>
+            <p class="hero-description">Your old film reels and printed photos are more than keepsakes — they are your family's history. TLC Film Transfer carefully converts 8mm film, Super 8 film, and printed photographs into high-quality digital files so you can relive, share, and preserve your memories for generations.</p>
+            <a href="#contact" class="btn-primary">Get a Free Quote Today</a>
+        </div>
+    </section>
+
+    <section class="section section-white">
+        <div class="container">
+            <div class="problem-box">
+                <h3>Don't Let Your Memories Stay Hidden in a Box</h3>
+                <p>Do you have old film reels tucked away in a closet, attic, or basement?</p>
+                <p>Maybe you have boxes of printed photos from family vacations, weddings, holidays, birthdays, or moments with loved ones who are no longer here.</p>
+                <p><strong>Over time, film becomes brittle. Photos fade. Colors shift. Memories can be lost.</strong></p>
+                <p>TLC Film Transfer helps you protect those irreplaceable moments by digitizing them with care.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🎞️ 8mm & Super 8 Film Transfer</h3>
+                    <p>We convert your old home movie reels into digital video files you can watch on your computer, TV, tablet, or phone.</p>
+                    <ul>
+                        <li>8mm film transfer</li>
+                        <li>Super 8 film transfer</li>
+                        <li>Frame-by-frame digital scanning</li>
+                        <li>MP4 digital files</li>
+                        <li>USB delivery options</li>
+                        <li>Careful handling of original reels</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <h3>📷 Professional Photo Scanning</h3>
+                    <p>We scan your printed photos and convert them into organized digital files that are easy to store, share, and enjoy.</p>
+                    <ul>
+                        <li>High-resolution photo scans</li>
+                        <li>JPEG digital files</li>
+                        <li>Cropping and rotation</li>
+                        <li>Basic color enhancement</li>
+                        <li>Organized digital folders</li>
+                        <li>USB delivery options</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="why-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose TLC Film Transfer?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🏠</div>
+                    <h3>Local & Personal Service</h3>
+                    <p>You are not sending your memories to a faceless mail-order company. We provide personal service with local care.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💙</div>
+                    <h3>Careful Handling</h3>
+                    <p>Every reel and photo is treated with respect. Your originals are handled as if they were our own family memories.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>Quality Digital Results</h3>
+                    <p>We focus on clean, high-quality digital files that are easy to watch, share, and preserve.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📦</div>
+                    <h3>One-Stop Memory Preservation</h3>
+                    <p>Film reels, printed photos, and family archives can all be digitized in one convenient place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-white" id="packages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Popular Photo Scanning Packages</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Memory Box Package</h3>
+                    <p class="price-note">Perfect for smaller collections</p>
+                    <div class="price">$49</div>
+                    <ul style="list-style: none; text-align: left; margin: 1rem 0;">
+                        <li>✓ Up to 100 photos</li>
+                        <li>✓ High-resolution scans</li>
+                        <li>✓ Digital delivery</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3>Family Archive Package</h3>
+                    <p class="price-note">Ideal for decades of family photos</p>
+                    <div class="price">$99</div>
+                    <ul style="list-style: none; text-align: left; margin: 1rem 0;">
+                        <li>✓ 250 photos</li>
+                        <li>✓ Organized digital folders</li>
+                        <li>✓ Basic enhancement</li>
+                    </ul>
+                </div>
+                <div class="pricing-card">
+                    <h3>Legacy Collection Package</h3>
+                    <p class="price-note">Best for large family archives</p>
+                    <div class="price">Custom</div>
+                    <ul style="list-style: none; text-align: left; margin: 1rem 0;">
+                        <li>✓ 500+ photos</li>
+                        <li>✓ Digital organization</li>
+                        <li>✓ Enhancement options</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="problem-box" style="margin-top: 3rem;">
+                <h3>💰 Bundle & Save — Family Memory Package</h3>
+                <p><strong>Have both film reels and photos?</strong></p>
+                <p>Bundle your film transfer and photo scanning into one complete memory preservation project.</p>
+                <p><strong>Includes:</strong></p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Film reel transfer</li>
+                    <li>Photo scanning</li>
+                    <li>USB delivery</li>
+                    <li>Organized digital files</li>
+                </ul>
+                <p style="margin-top: 1rem;"><a href="#contact" style="color: var(--primary); font-weight: bold;">Contact us for bundle pricing →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Imagine Sharing These Memories Again</h2>
+            </div>
+            <div class="memories-list">
+                <div class="memory-item">👶 Your child's first steps</div>
+                <div class="memory-item">👨‍👩‍👧‍👦 Family reunions</div>
+                <div class="memory-item">🎄 Holiday gatherings</div>
+                <div class="memory-item">💒 Wedding celebrations</div>
+                <div class="memory-item">🎖️ Military service memories</div>
+                <div class="memory-item">👴 Grandparents telling stories</div>
+                <div class="memory-item">✈️ Vacations from years ago</div>
+                <div class="memory-item">💭 Moments you thought were forgotten</div>
+            </div>
+            <p style="text-align: center; font-size: 1.1rem; margin-top: 1.5rem; font-style: italic;">Many customers say watching their digitized memories feels like opening a time capsule.</p>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Contact Us</h3>
+                    <p>Tell us what you have — film reels, photos, or both.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get a Quote</h3>
+                    <p>We'll review your project and provide simple pricing.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>We Digitize With Care</h3>
+                    <p>Your memories are carefully scanned and converted into digital files.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Watch, Share & Preserve</h3>
+                    <p>Receive your digital files and enjoy your memories again.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-white contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Start Preserving Your Memories Today</h2>
+                <p>Every day your film and photos continue to age. The best time to preserve them is now.</p>
+            </div>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>Call TLC Film Transfer today for a free quote.</strong></p>
+            <div class="contact-info">
+                <div class="contact-item">📍 <strong>Denver, Colorado</strong></div>
+                <p style="margin-top: 1.5rem; font-size: 1rem;">Contact us today for your free quote.</p>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.8;">Serving Colorado families and nationwide shipping customers.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>TLC Film Transfer</strong></p>
+            <p class="tagline">Preserving Yesterday. Digitizing for Tomorrow.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 TLC Film Transfer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
