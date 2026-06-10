@@ -7,151 +7,479 @@
     <meta name="description" content="Professional film transfer and photo scanning in Denver, Colorado. Convert 8mm, Super 8 film and printed photos to digital. Local, personal service.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* Premium Vintage Color Palette */
         :root {
-            --primary: #1a365d;
-            --secondary: #c9a227;
-            --accent: #e2e8f0;
-            --text: #2d3748;
-            --light: #f7fafc;
-            --dark: #1a202c;
+            --primary-text: #2F1E14;      /* Deep Espresso */
+            --accent-gold: #A67C52;        /* Antique Gold */
+            --subhead-cocoa: #5A3E2B;      /* Warm Cocoa */
+            --divider-gold: #C6A46C;       /* Muted Gold */
+            --cream: #F5F0E8;              /* Warm cream background */
+            --light-cream: #FAF7F2;        /* Lighter cream */
+            --warm-white: #FDFCFA;         /* Warm white */
+            --sepia-overlay: rgba(166, 124, 82, 0.08); /* Subtle sepia tint */
         }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
             line-height: 1.7;
-            color: var(--text);
-            background: var(--light);
+            color: var(--primary-text);
+            background: var(--cream);
         }
+        
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
-            color: white;
+            background: var(--primary-text);
+            color: var(--cream);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(47, 30, 20, 0.15);
+            border-bottom: 2px solid var(--accent-gold);
         }
+        
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.4rem; font-weight: bold; }
-        .logo span { color: var(--secondary); }
+        
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: bold; 
+            font-family: 'Georgia', serif;
+            letter-spacing: 1px;
+        }
+        
+        .logo span { 
+            color: var(--accent-gold); 
+        }
+        
         .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { color: white; text-decoration: none; font-weight: 500; }
+        .nav-links a { 
+            color: var(--cream); 
+            text-decoration: none; 
+            font-weight: 500;
+            font-family: 'Segoe UI', sans-serif;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+        
         .cta-button {
-            background: var(--secondary);
-            color: var(--dark);
+            background: var(--accent-gold);
+            color: var(--primary-text);
             padding: 0.75rem 1.5rem;
-            border-radius: 50px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-gold);
         }
+        
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent-gold);
+        }
+        
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #2c5282 100%);
-            color: white;
-            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--subhead-cocoa) 100%);
+            color: var(--cream);
+            padding: 160px 0 100px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; line-height: 1.2; }
-        .hero h1 span { color: var(--secondary); }
-        .hero-subtitle { font-size: 1.3rem; margin-bottom: 1.5rem; opacity: 0.95; }
-        .hero-description { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.9; }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/root/.openclaw/media/inbound/file_9---1ca003ae-a22b-4c5c-b9b9-06f05be66073.jpg') center/cover;
+            opacity: 0.15;
+            filter: sepia(60%);
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 { 
+            font-size: 2.8rem; 
+            margin-bottom: 1rem; 
+            line-height: 1.2;
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .hero h1 span { 
+            color: var(--accent-gold); 
+            display: block;
+            font-size: 1.2em;
+            margin-top: 0.5rem;
+        }
+        
+        .hero-subtitle { 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            opacity: 0.95;
+            color: var(--divider-gold);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        .hero-description { 
+            font-size: 1.1rem; 
+            max-width: 700px; 
+            margin: 0 auto 2rem; 
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
         .btn-primary {
-            background: var(--secondary);
-            color: var(--dark);
+            background: var(--accent-gold);
+            color: var(--primary-text);
             padding: 1rem 2.5rem;
-            border-radius: 50px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
             display: inline-block;
+            font-family: 'Segoe UI', sans-serif;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-gold);
         }
-        .section { padding: 70px 0; }
-        .section-white { background: white; }
-        .section-light { background: var(--light); }
-        .section-dark { background: var(--primary); color: white; }
-        .section-title { text-align: center; margin-bottom: 2.5rem; }
-        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 1rem; }
-        .section-dark .section-title h2 { color: white; }
-        .section-title p { font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--accent-gold);
+        }
+        
+        .section { padding: 80px 0; }
+        .section-white { background: var(--warm-white); }
+        .section-light { background: var(--light-cream); }
+        .section-dark { 
+            background: var(--subhead-cocoa); 
+            color: var(--cream);
+        }
+        
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        
+        .section-title h2 { 
+            font-size: 2.2rem; 
+            color: var(--primary-text); 
+            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        
+        .section-dark .section-title h2 { 
+            color: var(--cream); 
+        }
+        
+        .section-title p { 
+            font-size: 1.1rem; 
+            max-width: 600px; 
+            margin: 0 auto;
+            color: var(--subhead-cocoa);
+        }
+        
+        .section-dark .section-title p {
+            color: var(--divider-gold);
+        }
+        
         .problem-box {
-            background: white;
-            border-radius: 15px;
-            padding: 2.5rem;
+            background: var(--warm-white);
+            border-radius: 8px;
+            padding: 3rem;
             margin-top: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(47, 30, 20, 0.08);
+            border: 1px solid var(--divider-gold);
+            position: relative;
         }
-        .problem-box h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.4rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        
+        .problem-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--divider-gold));
+        }
+        
+        .problem-box h3 { 
+            color: var(--subhead-cocoa); 
+            margin-bottom: 1.5rem; 
+            font-size: 1.5rem;
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        .problem-box p {
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+        
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 2rem; 
+        }
+        
         .service-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            background: var(--warm-white);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(47, 30, 20, 0.08);
+            border: 1px solid var(--divider-gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .service-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.4rem; }
-        .service-card ul { margin-left: 1.5rem; margin-top: 1rem; }
-        .service-card li { margin-bottom: 0.5rem; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .feature { text-align: center; padding: 1.5rem; }
-        .feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-        .feature h3 { margin-bottom: 0.75rem; color: var(--secondary); }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(47, 30, 20, 0.12);
+        }
+        
+        .service-card h3 { 
+            color: var(--subhead-cocoa); 
+            margin-bottom: 1rem; 
+            font-size: 1.4rem;
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        .service-card ul { 
+            margin-left: 1.5rem; 
+            margin-top: 1rem; 
+        }
+        
+        .service-card li { 
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
+        }
+        
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 2rem; 
+        }
+        
+        .feature { 
+            text-align: center; 
+            padding: 2rem;
+            background: rgba(166, 124, 82, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(198, 164, 108, 0.3);
+        }
+        
+        .feature-icon { 
+            font-size: 2.5rem; 
+            margin-bottom: 1rem; 
+        }
+        
+        .feature h3 { 
+            margin-bottom: 0.75rem; 
+            color: var(--accent-gold);
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            font-size: 1.2rem;
+        }
+        
+        .feature p {
+            color: var(--cream);
+            opacity: 0.9;
+        }
+        
+        .pricing-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 1.5rem; 
+            margin-top: 2rem; 
+        }
+        
         .pricing-card {
-            background: white;
-            border-radius: 15px;
-            padding: 2rem;
+            background: var(--warm-white);
+            border-radius: 8px;
+            padding: 2.5rem;
             text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(47, 30, 20, 0.1);
+            border: 1px solid var(--divider-gold);
+            position: relative;
         }
-        .pricing-card.featured { border: 3px solid var(--secondary); position: relative; }
+        
+        .pricing-card.featured { 
+            border: 3px solid var(--accent-gold); 
+            position: relative;
+            transform: scale(1.02);
+        }
+        
         .featured-badge {
             position: absolute;
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--secondary);
-            color: var(--dark);
+            background: var(--accent-gold);
+            color: var(--primary-text);
             padding: 0.4rem 1.2rem;
-            border-radius: 25px;
+            border-radius: 4px;
             font-weight: bold;
             font-size: 0.85rem;
+            font-family: 'Segoe UI', sans-serif;
         }
-        .pricing-card h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.5rem; }
-        .price { font-size: 2.5rem; color: var(--primary); font-weight: bold; margin: 1rem 0; }
-        .price-note { color: var(--text); font-size: 0.9rem; }
+        
+        .pricing-card h3 { 
+            color: var(--subhead-cocoa); 
+            font-size: 1.4rem; 
+            margin-bottom: 0.5rem;
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+        }
+        
+        .price { 
+            font-size: 2.8rem; 
+            color: var(--accent-gold); 
+            font-weight: bold; 
+            margin: 1.5rem 0;
+            font-family: 'Georgia', serif;
+        }
+        
+        .price-note { 
+            color: var(--subhead-cocoa); 
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        
         .memories-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin: 2rem 0;
         }
+        
         .memory-item {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 10px;
+            background: var(--warm-white);
+            padding: 1.2rem;
+            border-radius: 8px;
             text-align: center;
+            border: 1px solid var(--divider-gold);
+            font-size: 1rem;
+            color: var(--primary-text);
         }
-        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .step { text-align: center; padding: 1.5rem; }
+        
+        .steps { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 2rem; 
+        }
+        
+        .step { 
+            text-align: center; 
+            padding: 2rem;
+            background: rgba(166, 124, 82, 0.08);
+            border-radius: 8px;
+            border: 1px solid rgba(198, 164, 108, 0.3);
+        }
+        
         .step-number {
-            width: 50px; height: 50px;
-            background: var(--secondary);
-            color: var(--dark);
+            width: 55px; 
+            height: 55px;
+            background: var(--accent-gold);
+            color: var(--primary-text);
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; font-weight: bold;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            font-size: 1.4rem; 
+            font-weight: bold;
             margin: 0 auto 1rem;
+            font-family: 'Georgia', serif;
+            border: 3px solid var(--divider-gold);
         }
-        .contact-section { text-align: center; }
-        .contact-info { margin: 2rem 0; }
-        .contact-item { margin-bottom: 1rem; font-size: 1.1rem; }
-        footer { background: var(--dark); color: white; padding: 2rem 0; text-align: center; }
-        footer p { opacity: 0.8; }
-        .tagline { color: var(--secondary); font-weight: bold; margin-top: 0.5rem; }
+        
+        .step h3 {
+            color: var(--cream);
+            font-family: 'Georgia', serif;
+            font-weight: normal;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step p {
+            color: var(--cream);
+            opacity: 0.9;
+        }
+        
+        .contact-section { 
+            text-align: center; 
+        }
+        
+        .contact-info { 
+            margin: 2rem 0; 
+        }
+        
+        .contact-item { 
+            margin-bottom: 1rem; 
+            font-size: 1.2rem;
+            color: var(--subhead-cocoa);
+        }
+        
+        .flyer-showcase {
+            text-align: center;
+            padding: 3rem 0;
+            background: var(--cream);
+        }
+        
+        .flyer-showcase img {
+            max-width: 100%;
+            max-height: 600px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(47, 30, 20, 0.2);
+            border: 8px solid var(--warm-white);
+        }
+        
+        footer { 
+            background: var(--primary-text); 
+            color: var(--cream); 
+            padding: 3rem 0; 
+            text-align: center;
+            border-top: 3px solid var(--accent-gold);
+        }
+        
+        footer p { 
+            opacity: 0.9;
+        }
+        
+        .tagline { 
+            color: var(--accent-gold); 
+            font-weight: bold; 
+            margin-top: 0.5rem;
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        hr.divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--divider-gold), transparent);
+            margin: 3rem 0;
+        }
+        
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2rem; }
-            .hero { padding: 120px 0 60px; }
+            .hero { padding: 140px 0 80px; }
+            .hero h1 span { font-size: 1.1em; }
         }
     </style>
 </head>
@@ -174,6 +502,13 @@
             <p class="hero-subtitle">Professional Film Transfer & Photo Scanning in Denver, Colorado</p>
             <p class="hero-description">Your old film reels and printed photos are more than keepsakes — they are your family's history. TLC Film Transfer carefully converts 8mm film, Super 8 film, and printed photographs into high-quality digital files so you can relive, share, and preserve your memories for generations.</p>
             <a href="#contact" class="btn-primary">Get a Free Quote Today</a>
+        </div>
+    </section>
+
+    <!-- Flyer Image Showcase -->
+    <section class="flyer-showcase">
+        <div class="container">
+            <img src="/root/.openclaw/media/inbound/file_9---1ca003ae-a22b-4c5c-b9b9-06f05be66073.jpg" alt="TLC Film Transfer - Preserving Yesterday, Digitizing for Tomorrow">
         </div>
     </section>
 
@@ -303,7 +638,7 @@
                     <li>USB delivery</li>
                     <li>Organized digital files</li>
                 </ul>
-                <p style="margin-top: 1rem;"><a href="#contact" style="color: var(--primary); font-weight: bold;">Contact us for bundle pricing →</a></p>
+                <p style="margin-top: 1rem;"><a href="#contact" style="color: var(--accent-gold); font-weight: bold;">Contact us for bundle pricing →</a></p>
             </div>
         </div>
     </section>
@@ -323,7 +658,7 @@
                 <div class="memory-item">✈️ Vacations from years ago</div>
                 <div class="memory-item">💭 Moments you thought were forgotten</div>
             </div>
-            <p style="text-align: center; font-size: 1.1rem; margin-top: 1.5rem; font-style: italic;">Many customers say watching their digitized memories feels like opening a time capsule.</p>
+            <p style="text-align: center; font-size: 1.1rem; margin-top: 1.5rem; font-style: italic; color: var(--subhead-cocoa);">Many customers say watching their digitized memories feels like opening a time capsule.</p>
         </div>
     </section>
 
@@ -363,20 +698,20 @@
                 <h2>Start Preserving Your Memories Today</h2>
                 <p>Every day your film and photos continue to age. The best time to preserve them is now.</p>
             </div>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;"><strong>Call TLC Film Transfer today for a free quote.</strong></p>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--subhead-cocoa);"><strong>Call TLC Film Transfer today for a free quote.</strong></p>
             <div class="contact-info">
                 <div class="contact-item">📍 <strong>Denver, Colorado</strong></div>
-                <p style="margin-top: 1.5rem; font-size: 1rem;">Contact us today for your free quote.</p>
+                <p style="margin-top: 1.5rem; font-size: 1rem; color: var(--primary-text);">Contact us today for your free quote.</p>
             </div>
-            <p style="margin-top: 2rem; opacity: 0.8;">Serving Colorado families and nationwide shipping customers.</p>
+            <p style="margin-top: 2rem; color: var(--subhead-cocoa);">Serving Colorado families and nationwide shipping customers.</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p><strong>TLC Film Transfer</strong></p>
+            <p style="font-size: 1.2rem;"><strong>TLC Film Transfer</strong></p>
             <p class="tagline">Preserving Yesterday. Digitizing for Tomorrow.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">© 2024 TLC Film Transfer. All rights reserved.</p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.7;">© 2024 TLC Film Transfer. All rights reserved.</p>
         </div>
     </footer>
 </body>
