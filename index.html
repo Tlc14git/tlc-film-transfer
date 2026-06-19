@@ -30,15 +30,15 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
         header {
-            background: var(--primary-text);
-            color: var(--cream);
+            background: #D4B896;
+            color: var(--primary-text);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(47, 30, 20, 0.15);
-            border-bottom: 2px solid var(--accent-gold);
+            border-bottom: 2px solid #B8956A;
         }
         
         nav { display: flex; justify-content: space-between; align-items: center; }
@@ -56,7 +56,7 @@
         
         .nav-links { display: flex; gap: 2rem; list-style: none; }
         .nav-links a { 
-            color: var(--cream); 
+            color: var(--primary-text); 
             text-decoration: none; 
             font-weight: 500;
             font-family: 'Segoe UI', sans-serif;
@@ -85,12 +85,13 @@
         }
         
         .hero {
-            background: linear-gradient(135deg, var(--primary-text) 0%, var(--subhead-cocoa) 100%);
-            color: var(--cream);
+            background: var(--light-cream);
+            color: var(--primary-text);
             padding: 160px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom: 3px solid var(--divider-gold);
         }
         
         .hero::before {
@@ -117,6 +118,7 @@
             font-family: 'Georgia', serif;
             font-weight: normal;
             letter-spacing: 1px;
+            color: var(--primary-text);
         }
         
         .hero h1 span { 
@@ -130,7 +132,7 @@
             font-size: 1.3rem; 
             margin-bottom: 1.5rem; 
             opacity: 0.95;
-            color: var(--divider-gold);
+            color: var(--subhead-cocoa);
             font-family: 'Segoe UI', sans-serif;
         }
         
@@ -140,6 +142,7 @@
             margin: 0 auto 2rem; 
             opacity: 0.9;
             line-height: 1.8;
+            color: var(--primary-text);
         }
         
         .btn-primary {
@@ -165,8 +168,8 @@
         .section-white { background: var(--warm-white); }
         .section-light { background: var(--light-cream); }
         .section-dark { 
-            background: var(--subhead-cocoa); 
-            color: var(--cream);
+            background: var(--light-cream); 
+            color: var(--primary-text);
         }
         
         .section-title { text-align: center; margin-bottom: 3rem; }
@@ -181,7 +184,7 @@
         }
         
         .section-dark .section-title h2 { 
-            color: var(--cream); 
+            color: var(--primary-text); 
         }
         
         .section-title p { 
@@ -192,7 +195,7 @@
         }
         
         .section-dark .section-title p {
-            color: var(--divider-gold);
+            color: var(--subhead-cocoa);
         }
         
         .problem-box {
@@ -289,14 +292,14 @@
         
         .feature h3 { 
             margin-bottom: 0.75rem; 
-            color: var(--accent-gold);
+            color: var(--subhead-cocoa);
             font-family: 'Georgia', serif;
             font-weight: normal;
             font-size: 1.2rem;
         }
         
         .feature p {
-            color: var(--cream);
+            color: var(--primary-text);
             opacity: 0.9;
         }
         
@@ -386,9 +389,9 @@
         .step { 
             text-align: center; 
             padding: 2rem;
-            background: rgba(166, 124, 82, 0.08);
+            background: rgba(166, 124, 82, 0.12);
             border-radius: 8px;
-            border: 1px solid rgba(198, 164, 108, 0.3);
+            border: 1px solid rgba(198, 164, 108, 0.4);
         }
         
         .step-number {
@@ -408,14 +411,14 @@
         }
         
         .step h3 {
-            color: var(--cream);
+            color: var(--subhead-cocoa);
             font-family: 'Georgia', serif;
             font-weight: normal;
             margin-bottom: 0.5rem;
         }
         
         .step p {
-            color: var(--cream);
+            color: var(--primary-text);
             opacity: 0.9;
         }
         
@@ -448,11 +451,11 @@
         }
         
         footer { 
-            background: var(--primary-text); 
-            color: var(--cream); 
+            background: #D4B896; 
+            color: var(--primary-text); 
             padding: 3rem 0; 
             text-align: center;
-            border-top: 3px solid var(--accent-gold);
+            border-top: 3px solid #B8956A;
         }
         
         footer p { 
@@ -460,7 +463,7 @@
         }
         
         .tagline { 
-            color: var(--accent-gold); 
+            color: var(--subhead-cocoa); 
             font-weight: bold; 
             margin-top: 0.5rem;
             font-family: 'Georgia', serif;
@@ -507,8 +510,12 @@
 
     <section class="hero">
         <div class="container">
+            <div style="position: relative; display: inline-block; width: 90%; max-width: 900px; margin-bottom: 2rem;">
+                <img src="images/film-reel-hero.jpg" alt="Film reel" style="width: 100%; border-radius: 8px; display: block;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 8px; box-shadow: inset 0 0 60px 30px var(--light-cream), 0 4px 15px rgba(47, 30, 20, 0.2); pointer-events: none;"></div>
+            </div>
             <h1>Preserve Your Family Memories <span>Before They Fade</span></h1>
-            <p class="hero-subtitle">Professional Film Transfer & Photo Scanning in Denver, Colorado</p>
+            <p class="hero-subtitle">Professional Film Transfer & Photo Scanning in Centennial, Colorado</p>
             <p class="hero-description">Your old film reels and printed photos are more than keepsakes — they are your family's history. TLC Film Transfer carefully converts 8mm film, Super 8 film, and printed photographs into high-quality digital files so you can relive, share, and preserve your memories for generations.</p>
             <a href="#contact" class="btn-primary">Get a Free Quote Today</a>
         </div>
@@ -607,38 +614,42 @@
     <section class="section section-white" id="packages">
         <div class="container">
             <div class="section-title">
-                <h2>Popular Photo Scanning Packages</h2>
+                <h2>Our Services & Pricing</h2>
             </div>
             <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Memory Box Package</h3>
-                    <p class="price-note">Perfect for smaller collections</p>
-                    <div class="price">$49</div>
-                    <ul style="list-style: none; text-align: left; margin: 1rem 0;">
-                        <li>✓ Up to 100 photos</li>
-                        <li>✓ High-resolution scans</li>
-                        <li>✓ Digital delivery</li>
-                    </ul>
-                </div>
                 <div class="pricing-card featured">
-                    <div class="featured-badge">Most Popular</div>
-                    <h3>Family Archive Package</h3>
-                    <p class="price-note">Ideal for decades of family photos</p>
-                    <div class="price">$99</div>
+                    <div class="featured-badge">Film Transfer</div>
+                    <h3>8mm Film Transfer</h3>
+                    <div class="price">$0.20</div>
+                    <p class="price-note">Per foot</p>
                     <ul style="list-style: none; text-align: left; margin: 1rem 0;">
-                        <li>✓ 250 photos</li>
-                        <li>✓ Organized digital folders</li>
-                        <li>✓ Basic enhancement</li>
+                        <li>✓ 8mm & Super 8 film</li>
+                        <li>✓ Frame-by-frame capture</li>
+                        <li>✓ Digital files on USB</li>
+                        <li>✓ Multi-reel discount available</li>
                     </ul>
                 </div>
                 <div class="pricing-card">
-                    <h3>Legacy Collection Package</h3>
-                    <p class="price-note">Best for large family archives</p>
-                    <div class="price">Custom</div>
+                    <h3>Photo Scanning</h3>
+                    <div class="price">$0.35-0.50</div>
+                    <p class="price-note">Per photo (volume pricing)</p>
+                    <ul style="list-style: none; text-align: left; margin: 1rem 0; font-size: 0.95rem;">
+                        <li>• First 100 photos: $0.50 each</li>
+                        <li>• 101–500 photos: $0.40 each</li>
+                        <li>• 501–1,000 photos: $0.35 each</li>
+                        <li>• 1,000+ photos: Custom quote</li>
+                    </ul>
+                    <p style="text-align: center; margin-top: 1rem; font-weight: bold; color: var(--subhead-cocoa);">Minimum Order: $49</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Slide Scanning</h3>
+                    <div class="price">$0.30</div>
+                    <p class="price-note">Per slide</p>
                     <ul style="list-style: none; text-align: left; margin: 1rem 0;">
-                        <li>✓ 500+ photos</li>
-                        <li>✓ Digital organization</li>
-                        <li>✓ Enhancement options</li>
+                        <li>✓ 35mm slides</li>
+                        <li>✓ High-resolution scans</li>
+                        <li>✓ Color correction</li>
+                        <li>✓ Enhancement service available</li>
                     </ul>
                 </div>
             </div>
@@ -687,7 +698,7 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Contact Us</h3>
-                    <p>Tell us what you have — film reels, photos, or both.</p>
+                    <p>Tell us what you have — film reels, photos, slides, or all three.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
@@ -716,7 +727,7 @@
             </div>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--subhead-cocoa);"><strong>Call TLC Film Transfer today for a free quote.</strong></p>
             <div class="contact-info">
-                <div class="contact-item">📍 <strong>Denver, Colorado</strong></div>
+                <div class="contact-item">📍 <strong>Centennial, Colorado</strong></div>
                 <p style="margin-top: 1.5rem; font-size: 1rem; color: var(--primary-text);">Contact us today for your free quote.</p>
             </div>
             <p style="margin-top: 2rem; color: var(--subhead-cocoa);">Serving Colorado families and nationwide shipping customers.</p>
